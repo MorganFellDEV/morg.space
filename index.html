@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>space!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="starback.global.js"></script>
+</head>
+
+<body>
+    <div class="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+        <script>
+            // This is using https://github.com/zuramai/starback.js for stars, pretty neat.
+            let wrapper = document.querySelector('.canvas-wrapper');
+            let canvas = document.getElementById('canvas');
+            let starback;
+
+            function resizeCanvas() {
+                // Slightly increase the dimensions to avoid white gaps that will annoy everyone lol
+                canvas.width = wrapper.clientWidth + 1;
+                canvas.height = wrapper.clientHeight + 1;
+
+                starback = new Starback("#canvas", {
+                    type: 'dot',
+                    quantity: 250,
+                    direction: 225,
+                    backgroundColor: ['#000000', '#00001a'],
+                    starSize: [0, 1],
+                    speed: [0.03, 0.06],
+                    randomOpacity: [0.1, 0.9],
+                    width: canvas.width,
+                    height: canvas.height,
+                });
+
+
+            }
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(resizeCanvas, 100);
+            });
+
+            resizeCanvas();
+        </script>
+    </div>
+    <div class="actual-content">
+        <h1>moorgaan - Astronomy, SDR, and other fun things.</h1>
+        <hr>
+        <h2><u>What is this place?</u></h2>
+        <p>Honestly, I don't know yet, the plan is to put astrophotography, NOAA captures, etc, on here.</p>
+        <p>I want the site to have an early web aesthetic to it, more to come.</p>
+    </div>
+    <div class="footer">
+        <p id="footer-text">Author: Morgan Fell (<a href="mailto:morgan@morganfell.dev">morgan@morganfell.dev</a>)</p>
+    </div>
+</body>
+
+
+</html>

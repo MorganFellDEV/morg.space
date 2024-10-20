@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(#000000, #00001a);
+}
+
+.canvas-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(#000000, #00001a);
+  z-index: -1;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+}
+
+.actual-content{
+  color: white;
+  padding: 10px;
+  margin: 10px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  
+}
+
+#footer-text{
+  padding: 10px;
+  margin: 10px;
+}
